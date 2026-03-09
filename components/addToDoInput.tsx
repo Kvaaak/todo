@@ -7,17 +7,14 @@ import { useToDos } from '../hooks/useToDos';
 
 const AddToDoInput = () => {
   const [todo, setTodo] = useState('')
-  const [check, setCheck] = useState(false)
 
   const {createToDo} = useToDos()
 
-  console.log(todo)
-
   const handleSubmit = async () => {
     if (!todo.trim()) return
-    await createToDo({todo, check})
+    await createToDo({todo, check: false})
 
-    setTodo("")
+    setTodo('')
     Keyboard.dismiss()
   }
   return (
