@@ -1,7 +1,7 @@
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
 import React from 'react'
 import { Pressable, StyleSheet } from 'react-native'
-import { ThemedView } from './themed-view'
+import { ThemedView } from '../themed-view'
 
 type Props = {
   onChoice: (choice: 'rock' | 'paper' | 'scissors' ) => void
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     justifyContent: 'space-around',
-    backgroundColor: '#880000'
+    backgroundColor: '#b30000',
   },
   pressable: {
     backgroundColor: '#ffcaca',

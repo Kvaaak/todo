@@ -20,7 +20,6 @@ const MAPPING = {
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
   'gamecontroller.fill': 'sports-esports',
-  'scissors': 'scissors',
 } as unknown as IconMapping;
 
 /**

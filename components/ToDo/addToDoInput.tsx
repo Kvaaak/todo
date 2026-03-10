@@ -3,7 +3,7 @@ import { Keyboard, Pressable, StyleSheet, TextInput, TouchableWithoutFeedback } 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { useState } from 'react';
-import { useToDos } from '../hooks/useToDos';
+import { useToDos } from '../../hooks/useToDos';
 
 const AddToDoInput = () => {
   const [todo, setTodo] = useState('')
@@ -24,11 +24,12 @@ const AddToDoInput = () => {
           style={styles.input}
           value={todo}
           placeholder= 'Enter new task...'
+          placeholderTextColor='#8f8f8f'
           onChangeText={setTodo}
         />
 
         <Pressable onPress={handleSubmit} style={styles.button}>
-          <ThemedText>
+          <ThemedText style={{color: '#fff'}}>
             Add
           </ThemedText>
         </Pressable>
@@ -43,7 +44,7 @@ export default AddToDoInput
 const styles = StyleSheet.create({
   input: {
     padding: 20,
-    backgroundColor: '#7c7c7c',
+    borderWidth: 1,
     borderRadius: 6,
     alignSelf: 'stretch',
     marginHorizontal: 40,
@@ -51,9 +52,9 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 15,    
-    backgroundColor:'#7c7c7c',
+    backgroundColor:'#8f8f8f',
     borderRadius: 6, 
     marginHorizontal: 140,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 });

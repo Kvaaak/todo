@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Pressable, StyleSheet } from 'react-native'
+import { ThemedText } from '../themed-text'
+import { ThemedView } from '../themed-view'
 import RpsPlayerInput from './rpsPlayerInput'
-import { ThemedText } from './themed-text'
-import { ThemedView } from './themed-view'
 
 const RpsPlayerResult = ({ onReset }: { onReset: () => void }) => {
   return (
     <ThemedView style={styles.card}>
         <Pressable onPress={onReset}>
-          <ThemedText>
+          <ThemedText style={styles.reset}>
             Reset
           </ThemedText>
         </Pressable>
@@ -66,7 +66,6 @@ const RPS = () => {
 
   const handleStart = async () => {
     setGameState('play')
-    console.log(playerChoice)
     setPlayerChoice(null)
     setCpuChoice(null)
   }
@@ -75,7 +74,7 @@ const RPS = () => {
     <ThemedView style={styles.container}>
 
       <ThemedView style={styles.cpu}>
-        <ThemedText>
+        <ThemedText style={{color: '#fff'}}>
           {opponentName}
         </ThemedText>
 
@@ -95,7 +94,7 @@ const RPS = () => {
       </ThemedView>
 
       <ThemedView style={styles.player}>
-        <ThemedText>
+        <ThemedText style={{color: '#fff'}}>
           {playerName}
         </ThemedText>
 
@@ -112,7 +111,6 @@ export default RPS
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#005500',
     alignItems: 'center',
   },
   player: {
@@ -122,7 +120,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     alignSelf: 'stretch',
     alignItems: 'center',
-    backgroundColor: '#880000'
+    backgroundColor: '#b30000',
   },
   cpu: {
     flex: 1,
@@ -131,14 +129,14 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     alignSelf: 'stretch',
     alignItems: 'center',
-    backgroundColor: '#001188',
+    backgroundColor: '#0c00b3',
   },
   score: {
     flexDirection: 'row', 
     justifyContent: 'space-between',
     width: '60%',
     marginVertical: 10,
-    backgroundColor: '#005500',
+    
   },
   card: {
     flexDirection: 'row',
@@ -146,7 +144,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     justifyContent: 'space-around',
-    backgroundColor: '#880000'
+    backgroundColor: '#b30000',
   },
   pressable: {
     backgroundColor: '#ffcaca',
@@ -160,5 +158,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     marginTop: 30,
+    color: '#fff',
+  },
+  reset: {
+    padding: 20, 
+    borderWidth: 1, 
+    borderRadius: 6,
+    borderColor:'#ffcaca', 
+    color: '#fff'
   }
 })
