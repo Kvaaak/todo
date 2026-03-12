@@ -1,8 +1,8 @@
 import { useToDos } from '@/hooks/useToDos'
 import { FontAwesomeFreeSolid } from "@react-native-vector-icons/fontawesome-free-solid"
 import { FlatList, Pressable, StyleSheet } from 'react-native'
-import { ThemedText } from './themed-text'
-import { ThemedView } from './themed-view'
+import { ThemedText } from '../themed-text'
+import { ThemedView } from '../themed-view'
 
 const ToDoItem = () => {
   const {todos, deleteToDo, checkToDo} = useToDos()

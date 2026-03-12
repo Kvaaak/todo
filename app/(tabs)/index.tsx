@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 
-import AddToDoInput from '@/components/addToDoInput';
 import { ThemedView } from '@/components/themed-view';
-import ToDoItem from '@/components/todoItem';
+import AddToDoInput from '@/components/ToDo/addToDoInput';
+import ToDoItem from '@/components/ToDo/todoItem';
 
 
-export default function HomeScreen() {
+export default function TaskScreen() {
   return (
     <ThemedView style={{flex: 1}}>
       <AddToDoInput/>
