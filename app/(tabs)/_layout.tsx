@@ -16,8 +16,8 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: true,
+        headerTitle: ({children}) => <Weather title={children}/>,
         tabBarButton: HapticTab,
-        headerTitle: () => <Weather/>
       }}>
       <Tabs.Screen
         name="index"
@@ -30,6 +30,7 @@ export default function TabLayout() {
         name="rps"
         options={{
           title: 'Game',
+          headerTitle: () => <Weather title='Game'/>,
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="gamecontroller.fill" color={color} />,
         }}
       />
@@ -37,6 +38,7 @@ export default function TabLayout() {
         name="randomGen"
         options={{
           title: 'Random',
+          headerTitle: () => <Weather title='Random'/>,
           tabBarIcon: ({ color }) => <FontAwesome5 name="random" size={28} color={color} />,
         }}
       />

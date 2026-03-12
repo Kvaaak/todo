@@ -1,32 +1,59 @@
+import { useWeather } from '@/hooks/useWeather'
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import { ThemedText } from '../themed-text'
-import { ThemedView } from '../themed-view'
 
-const Weather = () => {
-  return (
-    <ThemedView style={styles.container}>
-      <ThemedText style={styles.temp}>
-        Weather
+type Props = {
+  title: string
+}
+
+export default function Weather({ title }: Props) {
+  const { temp, icon, loading, city } = useWeather();
+
+  if (loading) return (
+    <View style={styles.container}>
+      <ThemedText>
+        {title}
       </ThemedText>
+    </View>
+  )
+
+  return (
+    <View style={styles.container}>
+      <ThemedText>
+        {title}
+      </ThemedText>
+      <View style={styles.weatherContainer}>
+        {city && <ThemedText style={styles.city}>{city}</ThemedText>}
+        {icon && <Image source={{ uri: icon }} style={styles.icon} />}
+        {temp !== null && <ThemedText style={styles.temp}>{temp}°C</ThemedText>}
+      </View>
       
-    </ThemedView>
+    </View>
   )
 }
 
-export default Weather
-
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between'
   },
   temp: {
     fontSize: 16,
     marginRight: 6,
   },
+    weatherContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   icon: {
-    width: 20,
-    height: 20,
+    width: 25,
+    height: 25,
+  },
+  city: {
+  fontSize: 14,
+  marginLeft: 4,
   }
 })
