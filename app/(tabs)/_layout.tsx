@@ -3,6 +3,7 @@ import React from 'react';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
+import Weather from '@/components/WeatherHeader/weather';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
@@ -16,6 +17,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: true,
         tabBarButton: HapticTab,
+        headerTitle: () => <Weather/>
       }}>
       <Tabs.Screen
         name="index"
