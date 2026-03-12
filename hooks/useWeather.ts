@@ -1,3 +1,4 @@
+import { API_KEY } from '@env'
 import * as Location from 'expo-location'
 import { useEffect, useState } from 'react'
 
@@ -29,9 +30,7 @@ export function useWeather() {
         const location = await Location.getCurrentPositionAsync({});
         const { latitude, longitude } = location.coords;
 
-        const API_KEY = "a04fde445477efcd45b8f40765ae7a26";
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`;
-
         const res = await fetch(url);
         const data = await res.json();
 
