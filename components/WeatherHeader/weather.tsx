@@ -15,6 +15,9 @@ export default function Weather({ title }: Props) {
       <ThemedText>
         {title}
       </ThemedText>
+      <View style={styles.weatherContainer}>
+        <ThemedText style={styles.temp}>--°C</ThemedText>
+      </View>
     </View>
   )
 

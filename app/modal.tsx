@@ -1,5 +1,5 @@
-import { Link } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { router } from 'expo-router';
+import { Pressable, StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -7,10 +7,15 @@ import { ThemedView } from '@/components/themed-view';
 export default function ModalScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
-      </Link>
+
+      <Pressable onPress={() => router.push("/(tabs)")} style={styles.link}>
+        <ThemedText>Tools</ThemedText>
+      </Pressable>
+
+      <Pressable onPress={() => router.push("/(games)/rps")} style={styles.link}>
+        <ThemedText>Games</ThemedText>
+      </Pressable>
+
     </ThemedView>
   );
 }
@@ -23,7 +28,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   link: {
+    padding: 20,
     marginTop: 15,
     paddingVertical: 15,
+    borderRadius: 6,
+    backgroundColor: '#aaa',
   },
 });
