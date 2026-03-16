@@ -13,9 +13,10 @@ export default function RootLayout() {
   return (
     <ToDoProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+        <Stack screenOptions={{headerShown: false, animation: "none"}}>
+          <Stack.Screen name="modal" options={{  presentation: 'modal'}} />
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="(games)" />
         </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>

@@ -6,8 +6,9 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import Weather from '@/components/WeatherHeader/weather';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
-export default function TabLayout() {
+export default function GamesLayout() {
   const colorScheme = useColorScheme();
 
   return (
@@ -19,10 +20,17 @@ export default function TabLayout() {
         tabBarButton: HapticTab,
       }}>
       <Tabs.Screen
-        name="index"
+        name="rps"
         options={{
-          title: 'To Do',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Game',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="gamecontroller.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="randomGen"
+        options={{
+          title: 'Random',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="random" size={28} color={color} />,
         }}
       />
     </Tabs>

@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   pressable: {
-    backgroundColor: '#7c7c7c',
+    backgroundColor: '#aaa',
     padding: 35,
     borderRadius: 6,
   },
