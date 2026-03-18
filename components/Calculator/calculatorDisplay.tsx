@@ -17,7 +17,7 @@ export default function CalculatorDisplay({equation, result}: CalculatorDisplayP
       <ThemedText style={styles.equation} numberOfLines={1} adjustsFontSizeToFit>
         {equation || '0'}
       </ThemedText>
-      <ThemedText style={styles.result}>
+      <ThemedText style={styles.result} numberOfLines={1} adjustsFontSizeToFit>
         {result}
       </ThemedText>
     </ThemedView>
@@ -42,5 +42,6 @@ const styles = StyleSheet.create({
     fontSize: 36,
     color: '#aaa',
     marginBottom: 20,
+    lineHeight: 30
   }
 })

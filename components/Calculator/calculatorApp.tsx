@@ -16,7 +16,28 @@ export default function CalculatorApp() {
   ]
 
   const handleSubmit = (value: string) => {
-    setEquation(prev => prev + value)
+    switch (value) {
+      case 'C':
+        setEquation('')
+        setResult('0')
+        break
+      case 'DEL':
+        setEquation(prev => prev.slice(0 ,-1))
+        break
+      case '=':
+        try {
+          const replaced = equation.replace(/÷/g, '/').replace(/x/g, '*').replace(/√(\d+(\.\d+)?)/g, 'Math.sqrt($1)').replace(/(\d+(\.\d+)?)%/g, '($1/100)')
+          const evalResult = eval(replaced)
+          setResult(String(evalResult))
+        } catch {
+          setResult('Error')
+        }
+
+        break
+      default:
+        setEquation(prev => prev + value)
+        break
+    }
   }
 
   return (
