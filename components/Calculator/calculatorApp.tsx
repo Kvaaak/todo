@@ -26,13 +26,17 @@ export default function CalculatorApp() {
         break
       case '=':
         try {
-          const replaced = equation.replace(/÷/g, '/').replace(/x/g, '*').replace(/√(\d+(\.\d+)?)/g, 'Math.sqrt($1)').replace(/(\d+(\.\d+)?)%/g, '($1/100)').replace(/,/g, '.')
+          const replaced = equation
+            .replace(/÷/g, '/')
+            .replace(/x/g, '*')
+            .replace(/√(\d+(\.\d+)?)/g, 'Math.sqrt($1)')
+            .replace(/(\d+(\.\d+)?)%/g, '($1/100)')
+            .replace(/,/g, '.')
           const evalResult = eval(replaced)
           setResult(String(evalResult))
         } catch {
           setResult('Error')
         }
-
         break
       default:
         setEquation(prev => prev + value)
@@ -51,7 +55,7 @@ export default function CalculatorApp() {
       </ThemedView>
 
     </ThemedView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({

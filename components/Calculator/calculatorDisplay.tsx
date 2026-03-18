@@ -9,9 +9,6 @@ type CalculatorDisplayProps =  {
 }
 
 export default function CalculatorDisplay({equation, result}: CalculatorDisplayProps) {
-
-
-
   return (
     <ThemedView style={styles.container}>
       <ThemedText style={styles.equation} numberOfLines={1} adjustsFontSizeToFit>
