@@ -3,14 +3,22 @@ import { StyleSheet } from 'react-native'
 import { ThemedText } from '../themed-text'
 import { ThemedView } from '../themed-view'
 
-export default function CalculatorDisplay() {
+type CalculatorDisplayProps =  {
+  equation: string
+  result: string
+}
+
+export default function CalculatorDisplay({equation, result}: CalculatorDisplayProps) {
+
+
+
   return (
     <ThemedView style={styles.container}>
-      <ThemedText style={styles.equation}>
-        √123+456÷789
+      <ThemedText style={styles.equation} numberOfLines={1} adjustsFontSizeToFit>
+        {equation || '0'}
       </ThemedText>
       <ThemedText style={styles.result}>
-        11,6684832745
+        {result}
       </ThemedText>
     </ThemedView>
   )
@@ -26,6 +34,8 @@ const styles = StyleSheet.create({
     marginTop: 70,
     fontSize: 48,
     padding: 16,
+    lineHeight: 52,
+    textAlign: 'right'
   },
   result: {
     padding: 16,

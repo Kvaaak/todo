@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { ThemedView } from "../themed-view";
 import CalculatorButton from "./calculatorButton";
 import CalculatorDisplay from "./calculatorDisplay";
 
 export default function CalculatorApp() {
+  const [equation, setEquation] = useState('')
+  const [result, setResult] = useState('0')
   const buttons = [
     'C','√','%','DEL',
     '7','8','9','÷',
@@ -12,13 +15,17 @@ export default function CalculatorApp() {
     '0',',','=','+'
   ]
 
+  const handleSubmit = (value: string) => {
+    setEquation(prev => prev + value)
+  }
+
   return (
     <ThemedView style={styles.container}>
-      <CalculatorDisplay/>
+      <CalculatorDisplay equation={equation} result={result}/>
 
       <ThemedView style={styles.grid}>
         {buttons.map((b, i) => (
-          <CalculatorButton key={i} label={b} onPress={() => console.log(b)}/>
+          <CalculatorButton key={i} value={b} onPress={handleSubmit}/>
         ))}
       </ThemedView>
 

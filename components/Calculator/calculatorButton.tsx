@@ -2,18 +2,18 @@ import Feather from "@expo/vector-icons/Feather";
 import { Pressable, StyleSheet } from "react-native";
 import { ThemedText } from "../themed-text";
 
-type Props = {
-  label: string;
-  onPress: () => void;
+type CalculatorButtonProps = {
+  value: string 
+  onPress: (value: string) => void
 };
 
-export default function CalculatorButton({ label, onPress }: Props) {
+export default function CalculatorButton({ value, onPress }: CalculatorButtonProps) {
   return (
-    <Pressable onPress={onPress} style={styles.pressable}>
-      {label === 'DEL' ? (
+    <Pressable onPress={() => onPress(value)} style={styles.pressable}>
+      {value === 'DEL' ? (
         <Feather name="delete" size={24} color="black" />
       ) : (
-      <ThemedText style={styles.text}>{label}</ThemedText>
+        <ThemedText style={styles.text}>{value}</ThemedText>
       )}
     </Pressable>
   )
