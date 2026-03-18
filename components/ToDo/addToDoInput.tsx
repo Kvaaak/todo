@@ -1,11 +1,13 @@
-import { Keyboard, Pressable, StyleSheet, TextInput, TouchableWithoutFeedback } from 'react-native';
-
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { Colors } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useState } from 'react';
+import { Keyboard, Pressable, StyleSheet, TextInput, TouchableWithoutFeedback } from 'react-native';
 import { useToDos } from '../../hooks/useToDos';
 
 const AddToDoInput = () => {
+  const colorScheme = useColorScheme();
   const [todo, setTodo] = useState('')
 
   const {createToDo} = useToDos()
@@ -21,7 +23,7 @@ const AddToDoInput = () => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <ThemedView>
         <TextInput 
-          style={styles.input}
+          style={[styles.input, { color: Colors[colorScheme ?? 'light'].text }]}
           value={todo}
           placeholder= 'Enter new task...'
           placeholderTextColor='#8f8f8f'
@@ -29,7 +31,7 @@ const AddToDoInput = () => {
         />
 
         <Pressable onPress={handleSubmit} style={styles.button}>
-          <ThemedText style={{color: '#fff'}}>
+          <ThemedText>
             Add
           </ThemedText>
         </Pressable>

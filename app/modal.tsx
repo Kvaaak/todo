@@ -8,7 +8,7 @@ export default function ModalScreen() {
   return (
     <ThemedView style={styles.container}>
 
-      <Pressable onPress={() => router.push("/(tabs)")} style={styles.link}>
+      <Pressable onPress={() => router.push("/(tabs)/task")} style={styles.link}>
         <ThemedText>Tools</ThemedText>
       </Pressable>
 

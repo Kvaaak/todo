@@ -1,12 +1,10 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import CalculatorApp from '@/components/Calculator/calculatorApp'
+import { ThemedView } from '@/components/themed-view'
 
-const Calculator = () => {
+export default function CalculatorScreen() {
   return (
-    <View>
-      <Text>calculator</Text>
-    </View>
+    <ThemedView style={{ flex: 1 }}>
+      <CalculatorApp />
+    </ThemedView>
   )
 }
-
-export default Calculator
