@@ -5,7 +5,7 @@ import { ThemedText } from "../themed-text";
 type CalculatorButtonProps = {
   value: string 
   onPress: (value: string) => void
-};
+}
 
 export default function CalculatorButton({ value, onPress }: CalculatorButtonProps) {
   return (
